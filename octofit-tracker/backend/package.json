@@ -1,23 +1,25 @@
 {
-  "name": "backend",
+  "name": "octofit-tracker-backend",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "ts-node-dev --respawn src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "seed": "ts-node src/scripts/seed.ts"
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "seed": "tsx src/scripts/seed.ts"
   },
   "dependencies": {
-    "express": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
     "mongoose": "^8.18.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
-    "@types/node": "^24.0.13",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
+    "@types/node": "^24.3.1",
+    "tsx": "^4.20.4",
     "typescript": "^5.9.2"
   }
 }
