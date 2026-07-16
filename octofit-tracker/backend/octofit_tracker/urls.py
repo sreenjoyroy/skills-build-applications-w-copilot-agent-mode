@@ -1,8 +1,24 @@
 """URL configuration for OctoFit Tracker."""
 
 from django.urls import include, path
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
-from .views import activities_view, api_root, leaderboard_view, teams_view, users_view, workouts_view
+from .views import activities_view, leaderboard_view, teams_view, users_view, workouts_view
+@api_view(["GET"])
+def api_root(request):
+    return Response(
+        {
+            "name": "OctoFit Tracker Django API",
+            "collections": {
+                "users": "/api/users/",
+                "teams": "/api/teams/",
+                "activities": "/api/activities/",
+                "leaderboard": "/api/leaderboard/",
+                "workouts": "/api/workouts/",
+            },
+        }
+    )
 
 
 api_patterns = (
@@ -22,4 +38,3 @@ urlpatterns = [
     path("", api_root, name="api_root"),
     path("api/", include(api_patterns)),
 ]
-

@@ -15,6 +15,10 @@ DEBUG = os.getenv("DJANGO_DEBUG", "1") == "1"
 
 allowed_hosts = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1]")
 ALLOWED_HOSTS = [host.strip() for host in allowed_hosts.split(",") if host.strip()]
+codespace_name = os.getenv("CODESPACE_NAME")
+if codespace_name:
+    ALLOWED_HOSTS.append(f"{codespace_name}-8000.app.github.dev")
+    ALLOWED_HOSTS.append(".app.github.dev")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
