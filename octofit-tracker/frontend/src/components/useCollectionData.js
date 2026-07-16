@@ -9,7 +9,6 @@ export function useCollectionData(resourceName, endpoint) {
     const controller = new AbortController()
 
     async function loadCollection() {
-      console.log(`${resourceName} API endpoint:`, endpoint)
       setLoading(true)
       setError('')
 
