@@ -4,8 +4,6 @@ import { useCollectionData } from './useCollectionData.js'
 
 export default function Activities() {
   const endpoint = getApiEndpoint('activities')
-  console.log('Activities endpoint:', endpoint)
-
   const { records, loading, error } = useCollectionData('Activities', endpoint)
 
   return (
