@@ -19,8 +19,6 @@ export function useCollectionData(resourceName, endpoint) {
         }
 
         const payload = await response.json()
-        console.log(`${resourceName} fetched data:`, payload)
-
         const normalizedRecords = Array.isArray(payload)
           ? payload
           : Array.isArray(payload?.results)
