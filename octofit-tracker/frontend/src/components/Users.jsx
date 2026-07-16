@@ -4,8 +4,6 @@ import { useCollectionData } from './useCollectionData.js'
 
 export default function Users() {
   const endpoint = getApiEndpoint('users')
-  console.log('Users endpoint:', endpoint)
-
   const { records, loading, error } = useCollectionData('Users', endpoint)
 
   return (
