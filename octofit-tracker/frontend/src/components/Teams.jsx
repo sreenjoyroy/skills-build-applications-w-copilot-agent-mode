@@ -4,8 +4,6 @@ import { useCollectionData } from './useCollectionData.js'
 
 export default function Teams() {
   const endpoint = getApiEndpoint('teams')
-  console.log('Teams endpoint:', endpoint)
-
   const { records, loading, error } = useCollectionData('Teams', endpoint)
 
   return (
