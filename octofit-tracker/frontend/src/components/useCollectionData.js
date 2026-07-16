@@ -14,8 +14,6 @@ export function useCollectionData(resourceName, endpoint) {
 
       try {
         const response = await fetch(endpoint, { signal: controller.signal })
-        console.log(`${resourceName} response status:`, response.status)
-
         if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`)
         }
